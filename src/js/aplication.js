@@ -47,10 +47,13 @@ function onClick() {
     .then(data => makeImgMarkup(data.hits))
     .then(markup => {
       refs.pictureExposition.insertAdjacentHTML('beforeend', markup);
+      function scrollInto() {
+        refs.loadMoreBtn.scrollIntoView({
+          behavior: 'smooth',
+          block: 'end',
+        });
+      }
 
-      refs.loadMoreBtn.scrollIntoView({
-        behavior: 'smooth',
-        block: 'end',
-      });
+      setTimeout(scrollInto, 1000);
     });
 }
